@@ -21,7 +21,6 @@ if has('unix')
   let $TEMP = '/tmp'
 endif
 
-
 " Functions {{{
 fun! Print(...)
   let l:colo = g:colors_name
@@ -110,10 +109,10 @@ nmap <Leader>cwo :botright copen 5<CR><C-w>p
 nmap <Leader>ccn :cnext<CR>
 
 " Arrow keys behavior
-nmap <silent> <Up> :wincmd k<CR>
-nmap <silent> <Down> :wincmd j<CR>
-nmap <silent> <Left> :wincmd h<CR>
-nmap <silent> <Right> :wincmd l<CR>
+"nmap <silent> <Up> :wincmd k<CR>
+"nmap <silent> <Down> :wincmd j<CR>
+"nmap <silent> <Left> :wincmd h<CR>
+"nmap <silent> <Right> :wincmd l<CR>
 
 " Plugins
 nmap <leader>im :Modeliner<CR>
@@ -227,7 +226,7 @@ set expandtab
 
 " How many spaces a hard tab in the file is shown as, and how many
 " spaces are replaced with one hard tab when using sts != ts and noet.
-set tabstop=8
+set tabstop=4
 
 " Indentation width (affects indentation plugins, indent based
 " folding, etc, and when smarttab is on, is used instead of ts/sts
@@ -432,11 +431,11 @@ set switchbuf+=useopen
 
 " Longer commandline and search history
 if has('cmdline_hist')
-  set history=500
+  set history=1000
 endif
 
 " Many levels of undo
-set undolevels=500
+set undolevels=1000
 
 " Viminfo file behavior
 if has('viminfo')
@@ -473,8 +472,8 @@ set smartcase
 set infercase
 
 " No incremental searches or search highlighting
-set noincsearch
-set nohlsearch
+set incsearch
+set hlsearch
 
 " Syntax for printing
 set popt+=syntax:y
@@ -655,13 +654,11 @@ if &t_Co > 2 || has('gui_running')
 
   if has('gui')
     colo baycomb
-  else
-    colo zellner
   endif
 
   " Colors red both trailing whitespace:
-  "  foo   
-  "  bar	
+  "  foo
+  "  bar
   " And spaces before tabs:
   "  foo 	bar
   hi def link RedundantWhitespace Error
@@ -690,7 +687,7 @@ if &t_Co > 2 || has('gui_running')
 endif
 " }}}
 
-" Autocommands {{{
+" Autocommrnds {{{
 if has('autocmd')
   augroup Kergoth
     au!
